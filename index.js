@@ -109,23 +109,3 @@ client.on("presenceUpdate", (oldMember, newMember) => {
   }
 })
 */
-
-const express = require('express');
-const server = express();
- 
-server.all('/', (req, res) => {
-  res.send(`The Gatekeeper is watching over you!`)
-})
- 
-function keepAlive() {
-  server.listen(3000, () => { console.log("Server is Ready!!" + Date.now()) });
-}
-
-keepAlive()
-
-const execSync = require('child_process').execSync;
-
-
-
-setTimeout(() => {const output = execSync('kill 1', { encoding: 'utf-8' });}, 10 * 1000 * 60)
-
